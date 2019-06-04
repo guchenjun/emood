@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hznu.emood.mapper.UserMapper">
+    <insert id="insertUser">
+        INSERT INTO emd_user (username, password, is_vip) VALUES (#{username}, #{password}, 0)
+    </insert>
+
+    <update id="updateUserVip">
+        UPDATE emd_user
+        SET is_vip = 1
+        WHERE id = #{userId}
+    </update>
+
+    <select id="getUserByUsername" resultType="com.hznu.emood.model.User">
+        SELECT * FROM emd_user WHERE username = #{username}
+    </select>
+
+    <select id="getUserById" resultType="com.hznu.emood.model.User">
+        SELECT * FROM emd_user WHERE id = #{userId}
+    </select>
+
+    <select id="getUsernameById" resultType="java.lang.String">
+        SELECT username FROM emd_user WHERE id = #{userId}
+    </select>
+
+    <select id="getVipByUserId" resultType="java.lang.Boolean">
+        SELECT is_vip FROM emd_user WHERE id = #{userId}
+    </select>
+</mapper>

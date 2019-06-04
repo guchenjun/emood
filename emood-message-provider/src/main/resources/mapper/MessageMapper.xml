@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hznu.emood.mapper.MessageMapper">
+
+    <insert id="insertMessage">
+        INSERT INTO emd_message
+        (user_id, content, gmt_create)
+        VALUES
+        (#{userId}, #{content}, #{gmtCreate})
+    </insert>
+
+    <select id="listMessage" resultType="com.hznu.emood.model.Message">
+        SELECT * FROM emd_message ORDER BY id DESC
+    </select>
+</mapper>

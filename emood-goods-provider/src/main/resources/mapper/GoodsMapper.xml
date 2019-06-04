@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hznu.emood.mapper.GoodsMapper">
+
+    <update id="updateGoodsStock">
+        UPDATE emd_goods
+        SET
+        version = version + 1,
+        goods_stock = goods_stock - 1
+        WHERE version = #{version} AND goods_stock > 0
+    </update>
+
+    <select id="listGoods" resultType="com.hznu.emood.model.Goods">
+        SELECT * FROM emd_goods LIMIT 1
+    </select>
+
+    <select id="getPriceById" resultType="java.math.BigDecimal">
+        SELECT goods_price FROM emd_goods WHERE id = #{goodsId}
+    </select>
+
+    <select id="getVersionById" resultType="java.lang.Long">
+        SELECT version FROM emd_goods WHERE id = #{goodsId}
+    </select>
+</mapper>

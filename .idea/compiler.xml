@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="emood-order-consumer" />
+        <module name="emood-goods-provider" />
+        <module name="emood-web" />
+        <module name="emood-interface" />
+        <module name="emood-message-provider" />
+        <module name="emood-order-provider" />
+        <module name="emood-user-provider" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="emood-goods-provider" options="-parameters" />
+      <module name="emood-interface" options="" />
+      <module name="emood-message-provider" options="-parameters" />
+      <module name="emood-order-consumer" options="-parameters" />
+      <module name="emood-order-provider" options="-parameters" />
+      <module name="emood-user-provider" options="-parameters" />
+      <module name="emood-web" options="-parameters" />
+    </option>
+  </component>
+</project>
