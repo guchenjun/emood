@@ -26,7 +26,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
-    public boolean getStatusByUUID(String uuid) {
-        return orderMapper.getStatusByUUID(uuid);
+    public Boolean getStatusByUUID(String uuid) {
+        System.out.println(uuid.toString());
+        System.out.println(orderMapper);
+        Boolean status = orderMapper.getStatusByUUID(uuid.toString());
+        System.out.println(status);
+        return status;
     }
 }

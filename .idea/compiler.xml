@@ -9,9 +9,9 @@
         <module name="emood-order-consumer" />
         <module name="emood-goods-provider" />
         <module name="emood-web" />
-        <module name="emood-interface" />
-        <module name="emood-message-provider" />
         <module name="emood-order-provider" />
+        <module name="emood-message-provider" />
+        <module name="emood-interface" />
         <module name="emood-user-provider" />
       </profile>
     </annotationProcessing>

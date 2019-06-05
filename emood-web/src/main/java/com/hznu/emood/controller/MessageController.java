@@ -32,17 +32,16 @@ public class MessageController {
 
     @UserLoginToken
     @ApiOperation(value = "留言板列表请求", notes = "返回留言板所有列表")
-    @GetMapping("/list")
-    public R messageList() {
-        Map<String, Object> map = new HashMap<>();
+    @GetMapping("/list/{pageNum}")
+    public R messageList(@PathVariable("pageNum")Integer pageNum) {
+        Map<String, Object> messageDTO = new HashMap<>();
         try {
-            List<MessageVO> messageVOList = messageService.listMessage();
-            map.put("msgList", messageVOList);
+            messageDTO = messageService.listMessage(pageNum);
         } catch (Exception e) {
             e.printStackTrace();
             return R.error(400, "err");
         }
-        return R.ok(200, "ok", map);
+        return R.ok(200, "ok", messageDTO);
     }
 
 

@@ -10,10 +10,7 @@ import com.hznu.emood.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 
 @Component
@@ -27,8 +24,11 @@ public class MessageServiceImpl implements MessageService {
     UserService userService;
 
     @Override
-    public List<MessageVO> listMessage() {
-        List<Message> messageList = messageMapper.listMessage();
+    public Map<String, Object> listMessage(Integer pageNum) {
+        List<Message> messageList = messageMapper.listMessage((pageNum-1) * 3);
+        Integer count = messageMapper.getCount();
+        Map<String, Object> map = new HashMap<>();
+        map.put("totalCount", count);
         List<MessageVO> messageVOList = new ArrayList<>();
         for (int i = 0; i < messageList.size(); i++) {
             Message message = messageList.get(i);
@@ -47,7 +47,9 @@ public class MessageServiceImpl implements MessageService {
             }
             messageVOList.add(messageVO);
         }
-        return messageVOList;
+        //留言板信息
+        map.put("messageList", messageVOList);
+        return map;
     }
 
     @Override

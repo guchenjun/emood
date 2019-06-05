@@ -9,5 +9,5 @@ public interface OrderMapper {
 
     void updateOrderStatus(@Param("uuid") String uuid);
 
-    boolean getStatusByUUID(@Param("uuid") String uuid);
+    Boolean getStatusByUUID(@Param("uuid") String uuid);
 }

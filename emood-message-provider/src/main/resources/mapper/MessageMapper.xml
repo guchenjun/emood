@@ -10,6 +10,10 @@
     </insert>
 
     <select id="listMessage" resultType="com.hznu.emood.model.Message">
-        SELECT * FROM emd_message ORDER BY id DESC
+        SELECT * FROM emd_message ORDER BY id DESC LIMIT #{offset}, 3
+    </select>
+
+    <select id="getCount" resultType="java.lang.Integer">
+        SELECT COUNT(*) FROM emd_message
     </select>
 </mapper>

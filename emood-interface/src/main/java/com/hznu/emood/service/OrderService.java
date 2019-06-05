@@ -7,5 +7,5 @@ public interface OrderService {
 
     void updateOrderStatus(String uuid);
 
-    boolean getStatusByUUID(String uuid);
+    Boolean getStatusByUUID(String uuid);
 }
